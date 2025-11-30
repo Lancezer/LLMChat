@@ -1,0 +1,60 @@
+{
+  "templates": [
+    "这是一个简短的示例回答，展示了如何在对话中渲染 *Markdown* 内容。\n\n- 支持基础格式\n- 支持 **粗体** 与 _斜体_\n- 也可以插入 [链接](https://vuejs.org/)",
+    "当然可以！下面是一段示例代码：\n\n```typescript\nfunction greet(name: string): string {\n  return `你好，${name}!`\n}\n\nconst message = greet('世界')\nconsole.log(message)\n```\n\n你可以继续追问以获得更多细节。这段代码展示了 TypeScript 的基本类型注解和模板字符串用法。",
+    "为了保证多轮对话的一致性，可以将最近的历史消息一起发送给模型，并在前端妥善管理消息状态。\n\n## 实现要点\n\n1. **上下文管理**：保存最近 8-10 轮对话\n2. **Token 控制**：避免上下文过长导致超出限制\n3. **状态同步**：确保 UI 状态与数据层保持一致",
+    "关于 Vue 3 的响应式系统，这里有个简单的例子：\n\n```javascript\nimport { ref, computed } from 'vue'\n\n// 响应式引用\nconst count = ref(0)\n\n// 计算属性\nconst doubled = computed(() => count.value * 2)\n\n// 修改值\nfunction increment() {\n  count.value++\n}\n```\n\n使用 `ref` 可以让基本类型变为响应式，而 `computed` 则用于派生状态。",
+    "我理解你的问题了。在处理异步数据时，建议使用以下模式：\n\n```typescript\nasync function fetchData() {\n  try {\n    const response = await api.get('/data')\n    return response.data\n  } catch (error) {\n    console.error('请求失败:', error)\n    throw error\n  }\n}\n```\n\n记得添加适当的错误处理和加载状态管理。",
+    "这是个很好的问题！让我用一个表格来说明：\n\n| 方案 | 优点 | 缺点 |\n|------|------|------|\n| localStorage | 简单易用，浏览器原生支持 | 容量限制 5-10MB |\n| IndexedDB | 容量大，支持索引查询 | API 相对复杂 |\n| Session Storage | 标签页隔离 | 关闭即清除 |\n\n根据你的需求选择合适的存储方案。",
+    "以下是实现虚拟滚动的核心思路：\n\n```typescript\nconst visibleRange = computed(() => {\n  const start = Math.floor(scrollTop.value / itemHeight)\n  const end = start + Math.ceil(containerHeight / itemHeight)\n  return { start, end }\n})\n\nconst visibleItems = computed(() => {\n  return allItems.slice(\n    visibleRange.value.start,\n    visibleRange.value.end\n  )\n})\n```\n\n虚拟滚动能大幅提升长列表性能。",
+    "前端性能优化的几个关键点：\n\n1. **代码分割**：使用动态 import 按需加载\n2. **图片优化**：WebP 格式 + 懒加载\n3. **缓存策略**：合理使用 HTTP 缓存和本地缓存\n4. **打包优化**：Tree Shaking + 压缩\n5. **渲染优化**：虚拟列表 + 防抖节流\n\n这些都是经过实践验证的优化手段。",
+    "CSS Grid 布局示例：\n\n```css\n.container {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 1.5rem;\n  padding: 2rem;\n}\n\n@media (max-width: 768px) {\n  .container {\n    grid-template-columns: 1fr;\n    padding: 1rem;\n  }\n}\n```\n\n这个布局会自动适配不同屏幕尺寸，非常适合响应式设计。",
+    "关于状态管理，Pinia 提供了简洁的 API：\n\n```typescript\nimport { defineStore } from 'pinia'\n\nexport const useUserStore = defineStore('user', {\n  state: () => ({\n    name: '',\n    isLoggedIn: false\n  }),\n  actions: {\n    login(username: string) {\n      this.name = username\n      this.isLoggedIn = true\n    }\n  },\n  getters: {\n    displayName: (state) => state.name || '访客'\n  }\n})\n```\n\nPinia 相比 Vuex 更加轻量且类型友好。",
+    "TypeScript 泛型的强大之处在于类型复用：\n\n```typescript\ninterface ApiResponse<T> {\n  code: number\n  message: string\n  data: T\n}\n\ntype UserResponse = ApiResponse<User>\ntype ListResponse<T> = ApiResponse<T[]>\n\nfunction request<T>(url: string): Promise<ApiResponse<T>> {\n  return fetch(url).then(res => res.json())\n}\n```\n\n泛型让代码更加灵活和类型安全。",
+    "移动端适配建议：\n\n- 使用 `rem` 或 `vw/vh` 单位\n- 设置 viewport meta 标签\n- 添加触摸事件优化\n- 考虑不同设备的安全区域\n\n```html\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no\">\n```\n\n同时记得测试不同尺寸的设备。"
+  ],
+  "cards": [
+    {
+      "cardType": "contact",
+      "title": "飞书妙享体验团队",
+      "description": "点击查看团队介绍与 Demo 视频，了解更多产品功能和设计理念",
+      "actionText": "打开飞书文档",
+      "actionUrl": "https://www.feishu.cn/"
+    },
+    {
+      "cardType": "article",
+      "title": "打造高质量对话产品的 5 个 Tips",
+      "description": "多轮上下文、异常处理、持久化与反馈循环，深入探讨 AI 对话产品设计",
+      "actionText": "阅读文章",
+      "actionUrl": "https://www.example.com/articles/llmchat-tips"
+    },
+    {
+      "cardType": "contact",
+      "title": "Vue 3 官方文档",
+      "description": "学习 Vue 3 Composition API 和最佳实践，掌握现代前端开发",
+      "actionText": "访问文档",
+      "actionUrl": "https://vuejs.org/"
+    },
+    {
+      "cardType": "article",
+      "title": "TypeScript 进阶指南",
+      "description": "从类型系统到高级特性，全面提升 TypeScript 开发能力",
+      "actionText": "开始学习",
+      "actionUrl": "https://www.typescriptlang.org/docs/"
+    },
+    {
+      "cardType": "article",
+      "title": "前端性能优化实战",
+      "description": "涵盖构建优化、渲染优化、网络优化等多个维度的实用技巧",
+      "actionText": "查看详情",
+      "actionUrl": "https://web.dev/performance/"
+    },
+    {
+      "cardType": "contact",
+      "title": "GitHub - LLMChat",
+      "description": "查看项目源码，了解完整的实现细节和架构设计",
+      "actionText": "访问仓库",
+      "actionUrl": "https://github.com/"
+    }
+  ]
+}
