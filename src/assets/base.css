@@ -1,0 +1,118 @@
+/* 亮色模式（默认） */
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+  --surface: #ffffff;
+  --surface-alt: #f5f7fb;
+  --border: #e2e8f0;
+  --border-strong: #cbd5f5;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --primary: #2563eb;
+  --primary-foreground: #f8fafc;
+  --danger: #ef4444;
+  --warning: #f97316;
+  --success: #16a34a;
+  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.08);
+
+  /* 响应式断点 */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* 暗色模式 */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --surface: #1e293b;
+  --surface-alt: #0f172a;
+  --border: #334155;
+  --border-strong: #475569;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --primary: #3b82f6;
+  --primary-foreground: #f8fafc;
+  --danger: #ef4444;
+  --warning: #f97316;
+  --success: #16a34a;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--surface-alt);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+textarea,
+input {
+  font: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+/* 滚动条样式（WebKit） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Firefox 滚动条 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) var(--surface);
+}
+
+/* 优化移动端触摸滚动 */
+.thread-shell,
+.list,
+textarea {
+  -webkit-overflow-scrolling: touch;
+}
